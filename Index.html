@@ -728,7 +728,7 @@
         
         function playBirthdaySong() {
             birthdaySong.loop = true;
-            birthdaySong.volume = isMuted ? 0 : 0.25;
+            birthdaySong.volume = isMuted ? 0 : 0.60;
             
             const playPromise = birthdaySong.play();
             
@@ -782,7 +782,7 @@
         
         volumeBtn.addEventListener('click', () => {
             if (isMuted) {
-                birthdaySong.volume = 0.25;
+                birthdaySong.volume = 0.60;
                 volumeBtn.innerHTML = '<i class="fas fa-volume-up"></i>';
                 isMuted = false;
             } else {
@@ -856,3 +856,4 @@
     </script>
 </body>
 </html>
+
