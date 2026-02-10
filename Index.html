@@ -3,506 +3,171 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🎉 Happy Birthday Rabia! 🎉</title>
-    <meta name="description" content="A beautiful birthday celebration website for Rabia">
+    <title>🎉 Rabia's Birthday Celebration</title>
+    <meta name="description" content="Happy Birthday Rabia! May Allah bless you with happiness and success.">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Great+Vibes&family=Pacifico&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
-        /* Reset and Base Styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --primary-gold: #FFD700;
-            --secondary-gold: #FFA500;
-            --dark-blue: #0c2461;
-            --medium-blue: #1e3799;
-            --light-blue: #4a69bd;
-            --cake-brown: #8B4513;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
-            min-height: 100vh;
-            overflow-x: hidden;
-            font-family: 'Poppins', sans-serif;
-            color: white;
+            min-height: 100vh; font-family: 'Poppins', sans-serif; color: white;
         }
-
-        /* Loading Screen */
         .loading-screen {
-            position: fixed;
-            width: 100%;
-            height: 100%;
-            background: #1a1a2e;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            z-index: 2000;
-            transition: opacity 1s ease;
+            position: fixed; width: 100%; height: 100%; background: #1a1a2e;
+            display: flex; justify-content: center; align-items: center;
+            flex-direction: column; z-index: 2000; transition: opacity 1s ease;
         }
-
-        .loading-screen.hidden {
-            opacity: 0;
-            pointer-events: none;
-        }
-
+        .loading-screen.hidden { opacity: 0; pointer-events: none; }
         .loader {
-            width: 80px;
-            height: 80px;
-            border: 8px solid rgba(255, 215, 0, 0.3);
-            border-top: 8px solid var(--primary-gold);
-            border-radius: 50%;
-            animation: spin 1.5s linear infinite;
-            margin-bottom: 20px;
+            width: 80px; height: 80px; border: 8px solid rgba(255, 215, 0, 0.3);
+            border-top: 8px solid #FFD700; border-radius: 50%;
+            animation: spin 1.5s linear infinite; margin-bottom: 20px;
         }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        /* Opening Screen */
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
         .opening-screen {
-            position: fixed;
-            width: 100%;
-            height: 100%;
+            position: fixed; width: 100%; height: 100%;
             background: linear-gradient(rgba(10, 10, 40, 0.95), rgba(5, 5, 30, 0.98));
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-            transition: opacity 1s ease;
+            display: flex; flex-direction: column; justify-content: center;
+            align-items: center; z-index: 1000; transition: opacity 1s ease;
         }
-
-        .opening-screen.fade-out {
-            opacity: 0;
-            pointer-events: none;
-        }
-
+        .opening-screen.fade-out { opacity: 0; pointer-events: none; }
         .invitation-card {
-            text-align: center;
-            padding: 30px;
-            background: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            border: 3px solid rgba(255, 215, 0, 0.3);
-            max-width: 500px;
-            margin: 0 20px;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            text-align: center; padding: 30px; background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px); border-radius: 20px; border: 3px solid rgba(255, 215, 0, 0.3);
+            max-width: 500px; margin: 0 20px; box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
         }
-
         .today-text {
-            font-size: 2.5rem;
-            background: linear-gradient(45deg, var(--primary-gold), var(--secondary-gold), var(--primary-gold));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            font-family: 'Great Vibes', cursive;
-            margin-bottom: 15px;
+            font-size: 2.5rem; background: linear-gradient(45deg, #FFD700, #FFA500, #FFD700);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            font-family: 'Great Vibes', cursive; margin-bottom: 15px;
         }
-
         .celebrate-text {
-            font-size: 1.5rem;
-            color: var(--primary-gold);
-            font-family: 'Pacifico', cursive;
-            margin-bottom: 30px;
+            font-size: 1.5rem; color: #FFD700; font-family: 'Pacifico', cursive; margin-bottom: 30px;
         }
-
-        /* Magic Door */
-        .magic-door-container {
-            position: relative;
-            width: 250px;
-            height: 400px;
-            margin: 20px auto;
-            perspective: 1000px;
-        }
-
+        .magic-door-container { position: relative; width: 250px; height: 400px; margin: 20px auto; perspective: 1000px; }
         .magic-door {
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(145deg, var(--cake-brown), #A0522D);
-            border: 8px solid #5D2906;
-            border-radius: 10px;
-            position: relative;
-            cursor: pointer;
-            transform-origin: left;
-            transition: transform 1s ease;
-            box-shadow: 0 0 40px rgba(255, 215, 0, 0.5);
-            overflow: hidden;
+            width: 100%; height: 100%; background: linear-gradient(145deg, #8B4513, #A0522D);
+            border: 8px solid #5D2906; border-radius: 10px; position: relative; cursor: pointer;
+            transform-origin: left; transition: transform 1s ease;
+            box-shadow: 0 0 40px rgba(255, 215, 0, 0.5); overflow: hidden;
         }
-
-        .magic-door:hover {
-            transform: perspective(1000px) rotateY(-8deg);
-        }
-
-        .magic-door.open {
-            transform: perspective(1000px) rotateY(-100deg);
-        }
-
+        .magic-door:hover { transform: perspective(1000px) rotateY(-8deg); }
+        .magic-door.open { transform: perspective(1000px) rotateY(-100deg); }
         .door-handle {
-            position: absolute;
-            right: 20px;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 20px;
-            height: 20px;
-            background: radial-gradient(circle at 30% 30%, var(--primary-gold), #B8860B);
-            border-radius: 50%;
-            border: 2px solid #654321;
-            box-shadow: 0 0 10px var(--primary-gold);
+            position: absolute; right: 20px; top: 50%; transform: translateY(-50%);
+            width: 20px; height: 20px; background: radial-gradient(circle at 30% 30%, #FFD700, #B8860B);
+            border-radius: 50%; border: 2px solid #654321; box-shadow: 0 0 10px #FFD700;
             animation: handle-glow 2s infinite alternate;
         }
-
         @keyframes handle-glow {
-            0% { box-shadow: 0 0 10px var(--primary-gold); }
-            100% { box-shadow: 0 0 20px var(--secondary-gold), 0 0 30px var(--primary-gold); }
+            0% { box-shadow: 0 0 10px #FFD700; }
+            100% { box-shadow: 0 0 20px #FFA500, 0 0 30px #FFD700; }
         }
-
         .enter-celebration-btn {
-            margin-top: 30px;
-            padding: 12px 30px;
-            background: linear-gradient(45deg, var(--primary-gold), var(--secondary-gold));
-            border: none;
-            border-radius: 50px;
-            color: var(--cake-brown);
-            font-size: 1.1rem;
-            font-weight: 600;
-            cursor: pointer;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.4);
+            margin-top: 30px; padding: 12px 30px; background: linear-gradient(45deg, #FFD700, #FFA500);
+            border: none; border-radius: 50px; color: #8B4513; font-size: 1.1rem; font-weight: 600;
+            cursor: pointer; display: inline-flex; align-items: center; gap: 10px;
+            transition: all 0.3s ease; box-shadow: 0 5px 15px rgba(255, 215, 0, 0.4);
         }
-
-        .enter-celebration-btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 8px 20px rgba(255, 215, 0, 0.6);
-        }
-
-        /* Celebration Room */
+        .enter-celebration-btn:hover { transform: scale(1.05); box-shadow: 0 8px 20px rgba(255, 215, 0, 0.6); }
         .celebration-room {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, var(--dark-blue) 0%, var(--medium-blue) 50%, var(--light-blue) 100%);
-            display: none;
-            overflow-y: auto;
-            padding: 15px;
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(135deg, #0c2461 0%, #1e3799 50%, #4a69bd 100%);
+            display: none; overflow-y: auto; padding: 15px;
         }
-
-        .celebration-room.active {
-            display: block;
-        }
-
-        /* Celebration Header */
-        .celebration-header {
-            text-align: center;
-            padding: 20px 15px;
-            margin-bottom: 20px;
-        }
-
+        .celebration-room.active { display: block; }
+        .celebration-header { text-align: center; padding: 20px 15px; margin-bottom: 20px; }
         .main-birthday-text {
-            font-size: 2.5rem;
-            background: linear-gradient(45deg, var(--primary-gold), #FF69B4, #4ECDC4);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            font-family: 'Dancing Script', cursive;
-            margin-bottom: 10px;
-            text-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+            font-size: 2.5rem; background: linear-gradient(45deg, #FFD700, #FF69B4, #4ECDC4);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            font-family: 'Dancing Script', cursive; margin-bottom: 10px;
         }
-
-        .sub-birthday-text {
-            font-size: 1.5rem;
-            color: var(--primary-gold);
-            font-family: 'Pacifico', cursive;
-        }
-
-        /* REAL CAKE SECTION */
-        .real-cake-section {
-            width: 100%;
-            max-width: 600px;
-            margin: 0 auto 30px;
-            text-align: center;
-            position: relative;
-        }
-
+        .sub-birthday-text { font-size: 1.5rem; color: #FFD700; font-family: 'Pacifico', cursive; }
+        .real-cake-section { width: 100%; max-width: 600px; margin: 0 auto 30px; text-align: center; }
         .cake-image-container {
-            position: relative;
-            width: 100%;
-            height: 300px;
-            margin-bottom: 15px;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+            position: relative; width: 100%; height: 300px; margin-bottom: 15px;
+            border-radius: 15px; overflow: hidden; box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
             border: 4px solid rgba(255, 215, 0, 0.3);
         }
-
-        .cake-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
-        .cake-image:hover {
-            transform: scale(1.02);
-        }
-
+        .cake-image { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+        .cake-image:hover { transform: scale(1.02); }
         .cake-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
-            padding: 20px;
-            text-align: center;
+            position: absolute; bottom: 0; left: 0; right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8)); padding: 20px; text-align: center;
         }
-
         .cake-title {
-            font-size: 2rem;
-            color: var(--primary-gold);
-            font-family: 'Great Vibes', cursive;
-            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
-            margin-bottom: 8px;
+            font-size: 2rem; color: #FFD700; font-family: 'Great Vibes', cursive;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5); margin-bottom: 8px;
         }
-
-        .cake-message {
-            font-size: 1.2rem;
-            color: white;
-            font-family: 'Dancing Script', cursive;
-        }
-
-        /* Animated Candles */
-        .virtual-candles {
-            position: absolute;
-            top: 15px;
-            left: 0;
-            right: 0;
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            z-index: 10;
-        }
-
-        .virtual-candle {
-            width: 10px;
-            height: 40px;
-            background: linear-gradient(to bottom, #FF6B6B, #FF4757);
-            border-radius: 5px;
-            position: relative;
-            animation: candle-float 3s ease-in-out infinite;
-        }
-
-        .virtual-flame {
-            position: absolute;
-            width: 15px;
-            height: 25px;
-            background: radial-gradient(ellipse at center, var(--primary-gold) 0%, #FF6B6B 70%, transparent 100%);
-            border-radius: 50% 50% 20% 20%;
-            top: -30px;
-            left: 50%;
-            transform: translateX(-50%);
-            animation: flame-dance 0.4s infinite alternate;
-            filter: blur(1px);
-            box-shadow: 0 0 15px var(--primary-gold);
-        }
-
-        @keyframes candle-float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-8px); }
-        }
-
-        @keyframes flame-dance {
-            0% { transform: translateX(-50%) scale(1); }
-            100% { transform: translateX(-50%) scale(1.2); }
-        }
-
-        /* Message Section */
+        .cake-message { font-size: 1.2rem; color: white; font-family: 'Dancing Script', cursive; }
         .message-section {
-            max-width: 600px;
-            margin: 30px auto;
-            padding: 30px;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 15px;
-            border: 2px solid rgba(255, 255, 255, 0.2);
-            text-align: center;
+            max-width: 600px; margin: 30px auto; padding: 30px;
+            background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); border-radius: 15px;
+            border: 2px solid rgba(255, 255, 255, 0.2); text-align: center;
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
         }
-
         .arabic-blessing {
-            font-size: 2.5rem;
-            color: var(--primary-gold);
-            font-family: 'Segoe UI', sans-serif;
-            margin: 15px 0;
-            direction: rtl;
-            text-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+            font-size: 2.5rem; color: #FFD700; font-family: 'Segoe UI', sans-serif;
+            margin: 15px 0; direction: rtl; text-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
         }
-
-        .english-blessing {
-            font-size: 1.4rem;
-            color: white;
-            margin: 15px 0;
-            line-height: 1.6;
-        }
-
+        .english-blessing { font-size: 1.4rem; color: white; margin: 15px 0; line-height: 1.6; }
         .special-note {
-            font-size: 1.2rem;
-            color: #4ECDC4;
-            font-style: italic;
-            margin-top: 20px;
-            font-family: 'Dancing Script', cursive;
+            font-size: 1.2rem; color: #4ECDC4; font-style: italic;
+            margin-top: 20px; font-family: 'Dancing Script', cursive;
         }
-
-        /* Music Player */
         .music-player {
-            position: fixed;
-            bottom: 15px;
-            right: 15px;
-            background: rgba(0, 0, 0, 0.85);
-            backdrop-filter: blur(10px);
-            border-radius: 50px;
-            padding: 10px 20px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            z-index: 1000;
-            border: 2px solid rgba(255, 215, 0, 0.3);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+            position: fixed; bottom: 15px; right: 15px; background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(10px); border-radius: 50px; padding: 10px 20px;
+            display: flex; align-items: center; gap: 12px; z-index: 1000;
+            border: 2px solid rgba(255, 215, 0, 0.3); box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
         }
-
-        .music-controls {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
+        .music-controls { display: flex; align-items: center; gap: 8px; }
         .music-btn {
-            width: 40px;
-            height: 40px;
-            background: rgba(255, 215, 0, 0.2);
-            border: none;
-            border-radius: 50%;
-            color: var(--primary-gold);
-            font-size: 1.1rem;
-            cursor: pointer;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            width: 40px; height: 40px; background: rgba(255, 215, 0, 0.2);
+            border: none; border-radius: 50%; color: #FFD700; font-size: 1.1rem;
+            cursor: pointer; display: flex; justify-content: center; align-items: center;
             transition: all 0.3s ease;
         }
-
-        .music-btn:hover {
-            background: rgba(255, 215, 0, 0.3);
-            transform: scale(1.1);
-        }
-
+        .music-btn:hover { background: rgba(255, 215, 0, 0.3); transform: scale(1.1); }
         .song-name {
-            color: var(--primary-gold);
-            font-size: 0.9rem;
-            font-weight: 600;
-            margin-left: 5px;
-            white-space: nowrap;
+            color: #FFD700; font-size: 0.9rem; font-weight: 600;
+            margin-left: 5px; white-space: nowrap;
         }
-
-        /* Decorative Elements */
-        .floating-elements {
-            position: fixed;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 1;
-        }
-
+        .floating-elements { position: fixed; width: 100%; height: 100%; pointer-events: none; z-index: 1; }
         .floating-element {
-            position: absolute;
-            font-size: 1.5rem;
-            animation: float-around 15s infinite linear;
-            opacity: 0.7;
+            position: absolute; font-size: 1.5rem;
+            animation: float-around 15s infinite linear; opacity: 0.7;
         }
-
         @keyframes float-around {
             0% { transform: translate(0, 0) rotate(0deg); opacity: 0; }
-            10% { opacity: 0.7; }
-            90% { opacity: 0.7; }
+            10% { opacity: 0.7; } 90% { opacity: 0.7; }
             100% { transform: translate(calc(100vw - 80px), calc(100vh - 80px)) rotate(360deg); opacity: 0; }
         }
-
-        /* Confetti */
-        .confetti-area {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 2;
-        }
-
+        .confetti-area { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 2; }
         .confetti-piece {
-            position: absolute;
-            width: 8px;
-            height: 8px;
-            background: var(--color);
+            position: absolute; width: 8px; height: 8px; background: var(--color);
             animation: confetti-rain 4s linear infinite;
         }
-
         @keyframes confetti-rain {
             0% { transform: translateY(-100px) rotate(0deg); opacity: 1; }
             100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
         }
-
-        /* Responsive Design */
         @media (max-width: 480px) {
-            .today-text {
-                font-size: 2rem;
-            }
-            
-            .main-birthday-text {
-                font-size: 2rem;
-            }
-            
-            .cake-image-container {
-                height: 250px;
-            }
-            
-            .cake-title {
-                font-size: 1.6rem;
-            }
-            
-            .arabic-blessing {
-                font-size: 2rem;
-            }
-            
-            .english-blessing {
-                font-size: 1.1rem;
-            }
-            
+            .today-text, .main-birthday-text { font-size: 2rem; }
+            .cake-image-container { height: 250px; }
+            .cake-title { font-size: 1.6rem; }
+            .arabic-blessing { font-size: 2rem; }
+            .english-blessing { font-size: 1.1rem; }
             .music-player {
-                bottom: 10px;
-                right: 10px;
-                left: 10px;
-                border-radius: 20px;
-                padding: 8px 15px;
-                justify-content: center;
+                bottom: 10px; right: 10px; left: 10px; border-radius: 20px;
+                padding: 8px 15px; justify-content: center;
             }
-            
-            .song-name {
-                font-size: 0.8rem;
-            }
+            .song-name { font-size: 0.8rem; }
         }
     </style>
 </head>
 <body>
-    <!-- Loading Screen -->
     <div class="loading-screen" id="loadingScreen">
         <div class="loader"></div>
         <div style="color: #FFD700; font-size: 1.2rem; font-family: 'Pacifico', cursive;">
@@ -510,69 +175,35 @@
         </div>
     </div>
 
-    <!-- Opening Screen -->
     <div class="opening-screen" id="openingScreen">
         <div class="invitation-card">
             <div class="today-text">🎂 Today is Your Day! 🎂</div>
             <div class="celebrate-text">A Special Celebration Awaits</div>
-            
             <div class="magic-door-container">
-                <div class="magic-door" id="birthdayDoor">
-                    <div class="door-handle"></div>
-                </div>
+                <div class="magic-door" id="birthdayDoor"><div class="door-handle"></div></div>
             </div>
-            
             <button class="enter-celebration-btn" id="enterButton">
-                <i class="fas fa-door-open"></i>
-                Enter Celebration
+                <i class="fas fa-door-open"></i> Enter Celebration
             </button>
         </div>
     </div>
 
-    <!-- Celebration Room -->
     <div class="celebration-room" id="celebrationRoom">
-        <!-- Floating Elements -->
         <div class="floating-elements" id="floatingElements"></div>
-        
-        <!-- Confetti -->
         <div class="confetti-area" id="confettiArea"></div>
-        
-        <!-- Header -->
         <div class="celebration-header">
             <div class="main-birthday-text">Happy Birthday Rabia!</div>
             <div class="sub-birthday-text">May Allah Bless You Always</div>
         </div>
-
-        <!-- REAL CAKE SECTION -->
         <div class="real-cake-section">
             <div class="cake-image-container">
-                <!-- CAKE IMAGE WILL BE SET BY JAVASCRIPT -->
-                <img src="" alt="Birthday Cake for Rabia" class="cake-image" id="birthdayCakeImage">
-                
-                <!-- Virtual Candles on Cake -->
-                <div class="virtual-candles">
-                    <div class="virtual-candle">
-                        <div class="virtual-flame"></div>
-                    </div>
-                    <div class="virtual-candle" style="animation-delay: 0.2s;">
-                        <div class="virtual-flame" style="animation-delay: 0.2s;"></div>
-                    </div>
-                    <div class="virtual-candle" style="animation-delay: 0.4s;">
-                        <div class="virtual-flame" style="animation-delay: 0.4s;"></div>
-                    </div>
-                    <div class="virtual-candle" style="animation-delay: 0.6s;">
-                        <div class="virtual-flame" style="animation-delay: 0.6s;"></div>
-                    </div>
-                </div>
-                
+                <img src="https://i.ibb.co/WWgPwNHj/7f5ea3eb-27be-4643-bf86-b2d648476966.png" alt="Birthday Cake" class="cake-image">
                 <div class="cake-overlay">
                     <div class="cake-title">For Our Dear Rabia</div>
-                    <div class="cake-message">Wishing You Infinite Happiness!</div>
+                    <div class="cake-message">Wishing You Infinite Happiness! 🎂</div>
                 </div>
             </div>
         </div>
-
-        <!-- Message Section -->
         <div class="message-section">
             <div class="arabic-blessing">إن شاء الله</div>
             <div class="english-blessing">
@@ -583,122 +214,65 @@
                 "May your special day be filled with love, laughter, and beautiful moments!"
             </div>
         </div>
-
-        <!-- Music Player -->
         <div class="music-player" id="musicPlayer">
             <div class="music-controls">
-                <button class="music-btn" id="playBtn">
-                    <i class="fas fa-play"></i>
-                </button>
-                <button class="music-btn" id="pauseBtn">
-                    <i class="fas fa-pause"></i>
-                </button>
-                <button class="music-btn" id="volumeBtn">
-                    <i class="fas fa-volume-up"></i>
-                </button>
-                <div class="song-name">Birthday Song</div>
+                <button class="music-btn" id="playBtn"><i class="fas fa-play"></i></button>
+                <button class="music-btn" id="pauseBtn"><i class="fas fa-pause"></i></button>
+                <button class="music-btn" id="volumeBtn"><i class="fas fa-volume-up"></i></button>
+                <div class="song-name">Happy Birthday Song</div>
             </div>
         </div>
     </div>
 
-    <!-- Birthday Song -->
+    <!-- WORKING BIRTHDAY SONG -->
     <audio id="birthdaySong" loop preload="metadata">
-        <!-- DEFAULT SONG - Replace with your song URL -->
         <source src="https://assets.mixkit.co/music/preview/mixkit-happy-birthday-to-you-443.mp3" type="audio/mpeg">
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
     </audio>
 
     <script>
-        // ==================== CONFIGURATION ====================
-        // 🎯 SET YOUR CUSTOM URLs HERE (for Vercel deployment)
-        
-        // Default URLs (will be used if custom URLs are not set)
-        const DEFAULT_CAKE_IMAGE = "https://images.unsplash.com/photo-1578985545062-69928b1d9587?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80";
-        const DEFAULT_SONG_URL = "https://assets.mixkit.co/music/preview/mixkit-happy-birthday-to-you-443.mp3";
-        
-        // 🎂 SET YOUR CUSTOM CAKE IMAGE URL HERE
-        const CUSTOM_CAKE_IMAGE = ""; // Example: "https://your-domain.com/cake.jpg"
-        
-        // 🎵 SET YOUR CUSTOM SONG URL HERE  
-        const CUSTOM_SONG_URL = ""; // Example: "https://your-domain.com/song.mp3"
-        // =======================================================
-        
-        // DOM Elements
         const loadingScreen = document.getElementById('loadingScreen');
         const openingScreen = document.getElementById('openingScreen');
         const celebrationRoom = document.getElementById('celebrationRoom');
         const birthdayDoor = document.getElementById('birthdayDoor');
         const enterButton = document.getElementById('enterButton');
-        const birthdayCakeImage = document.getElementById('birthdayCakeImage');
-        const floatingElements = document.getElementById('floatingElements');
-        const confettiArea = document.getElementById('confettiArea');
-        
-        // Music Elements
         const playBtn = document.getElementById('playBtn');
         const pauseBtn = document.getElementById('pauseBtn');
         const volumeBtn = document.getElementById('volumeBtn');
         const songName = document.querySelector('.song-name');
         const birthdaySong = document.getElementById('birthdaySong');
+        const floatingElements = document.getElementById('floatingElements');
+        const confettiArea = document.getElementById('confettiArea');
         
-        // Music state
         let isPlaying = false;
         let isMuted = false;
         
-        // Initialize with custom or default URLs
-        function initializeUrls() {
-            // Set cake image
-            if (CUSTOM_CAKE_IMAGE && CUSTOM_CAKE_IMAGE.trim() !== "") {
-                birthdayCakeImage.src = https://i.ibb.co/WWgPwNHj/7f5ea3eb-27be-4643-bf86-b2d648476966.png;
-                console.log("Using custom cake image:", CUSTOM_CAKE_IMAGE);
-            } else {
-                birthdayCakeImage.src = DEFAULT_CAKE_IMAGE;
-                console.log("Using default cake image");
-            }
-            
-            // Set song URL
-            if (CUSTOM_SONG_URL && CUSTOM_SONG_URL.trim() !== "") {
-                birthdaySong.src = https://www.mediafire.com/file/bd9w9es2swqwfjz/andriig-happy-birthday-471211.mp3/file;
-                console.log("Using custom song URL:", CUSTOM_SONG_URL);
-            } else {
-                birthdaySong.src = DEFAULT_SONG_URL;
-                console.log("Using default song URL");
-            }
-        }
-        
-        // Initialize on load
         window.addEventListener('load', function() {
-            initializeUrls();
-            
-            // Hide loading screen after 1.5 seconds
             setTimeout(() => {
                 loadingScreen.classList.add('hidden');
-                // Add initial sparkles
                 createInitialSparkles();
             }, 1500);
         });
         
-        // Create floating elements
         function createFloatingElements() {
             const elements = ['🎈', '🎉', '✨', '🎁', '💝', '🌸', '🎀', '🌟', '💫', '🥳'];
-            
             for (let i = 0; i < 12; i++) {
-                const element = document.createElement('div');
-                element.className = 'floating-element';
-                element.innerHTML = elements[Math.floor(Math.random() * elements.length)];
-                element.style.left = Math.random() * 100 + 'vw';
-                element.style.top = Math.random() * 100 + 'vh';
-                element.style.fontSize = (Math.random() * 15 + 12) + 'px';
-                element.style.color = ['#FFD700', '#FF69B4', '#4ECDC4', '#00FFFF'][Math.floor(Math.random() * 4)];
-                element.style.animationDuration = (Math.random() * 8 + 12) + 's';
-                element.style.animationDelay = Math.random() * 5 + 's';
-                
-                floatingElements.appendChild(element);
+                const el = document.createElement('div');
+                el.className = 'floating-element';
+                el.innerHTML = elements[Math.floor(Math.random() * elements.length)];
+                el.style.left = Math.random() * 100 + 'vw';
+                el.style.top = Math.random() * 100 + 'vh';
+                el.style.fontSize = (Math.random() * 15 + 12) + 'px';
+                el.style.color = ['#FFD700', '#FF69B4', '#4ECDC4', '#00FFFF'][Math.floor(Math.random() * 4)];
+                el.style.animationDuration = (Math.random() * 8 + 12) + 's';
+                el.style.animationDelay = Math.random() * 5 + 's';
+                floatingElements.appendChild(el);
             }
         }
         
-        // Create confetti
         function createConfetti() {
             const colors = ['#FFD700', '#FF6B6B', '#4ECDC4', '#CD84F1', '#00FFFF', '#FF69B4'];
-            
             for (let i = 0; i < 25; i++) {
                 const confetti = document.createElement('div');
                 confetti.className = 'confetti-piece';
@@ -706,69 +280,43 @@
                 confetti.style.animationDuration = Math.random() * 2 + 2 + 's';
                 confetti.style.animationDelay = Math.random() * 2 + 's';
                 confetti.style.setProperty('--color', colors[Math.floor(Math.random() * colors.length)]);
-                
-                if (Math.random() > 0.5) {
-                    confetti.style.borderRadius = '50%';
-                } else {
-                    confetti.style.width = '10px';
-                    confetti.style.height = '3px';
-                }
-                
+                if (Math.random() > 0.5) confetti.style.borderRadius = '50%';
                 confettiArea.appendChild(confetti);
-                
-                setTimeout(() => {
-                    if (confetti.parentNode) {
-                        confetti.remove();
-                    }
-                }, 4000);
+                setTimeout(() => confetti.remove(), 4000);
             }
         }
         
-        // Create initial sparkles
         function createInitialSparkles() {
             for (let i = 0; i < 6; i++) {
                 setTimeout(() => {
-                    const element = document.createElement('div');
-                    element.innerHTML = '✨';
-                    element.style.position = 'fixed';
-                    element.style.left = Math.random() * 100 + 'vw';
-                    element.style.top = Math.random() * 100 + 'vh';
-                    element.style.fontSize = (Math.random() * 15 + 10) + 'px';
-                    element.style.opacity = '0';
-                    element.style.pointerEvents = 'none';
-                    element.style.zIndex = '999';
-                    element.style.animation = 'float-around 2s ease-out forwards';
-                    
-                    document.body.appendChild(element);
-                    
-                    setTimeout(() => {
-                        if (element.parentNode) {
-                            element.remove();
-                        }
-                    }, 2000);
+                    const sparkle = document.createElement('div');
+                    sparkle.innerHTML = '✨';
+                    sparkle.style.position = 'fixed';
+                    sparkle.style.left = Math.random() * 100 + 'vw';
+                    sparkle.style.top = Math.random() * 100 + 'vh';
+                    sparkle.style.fontSize = (Math.random() * 15 + 10) + 'px';
+                    sparkle.style.opacity = '0';
+                    sparkle.style.pointerEvents = 'none';
+                    sparkle.style.zIndex = '999';
+                    sparkle.style.animation = 'float-around 2s ease-out forwards';
+                    document.body.appendChild(sparkle);
+                    setTimeout(() => sparkle.remove(), 2000);
                 }, i * 200);
             }
         }
         
-        // Enter celebration
         function enterCelebration() {
-            // Prevent multiple clicks
             birthdayDoor.style.pointerEvents = 'none';
             enterButton.disabled = true;
             
-            // Play door sound
             try {
                 const doorSound = new Audio('https://assets.mixkit.co/sfx/preview/mixkit-magic-sparkle-sound-3090.mp3');
                 doorSound.volume = 0.2;
-                doorSound.play().catch(e => console.log("Door sound play failed:", e));
-            } catch (e) {
-                console.log("Door sound error:", e);
-            }
+                doorSound.play();
+            } catch (e) {}
             
-            // Open door animation
             birthdayDoor.classList.add('open');
             
-            // Add magical sparkles
             for (let i = 0; i < 8; i++) {
                 setTimeout(() => {
                     const sparkle = document.createElement('div');
@@ -780,93 +328,63 @@
                     sparkle.style.opacity = '0';
                     sparkle.style.pointerEvents = 'none';
                     sparkle.style.zIndex = '1001';
-                    
                     document.body.appendChild(sparkle);
-                    
                     sparkle.animate([
                         { opacity: 0, transform: 'scale(0)' },
                         { opacity: 1, transform: 'scale(1)' },
                         { opacity: 0, transform: 'scale(0)' }
-                    ], {
-                        duration: 1000,
-                        easing: 'ease-out'
-                    });
-                    
-                    setTimeout(() => {
-                        if (sparkle.parentNode) {
-                            sparkle.remove();
-                        }
-                    }, 1000);
+                    ], { duration: 1000, easing: 'ease-out' });
+                    setTimeout(() => sparkle.remove(), 1000);
                 }, i * 120);
             }
             
-            // Transition to celebration room
             setTimeout(() => {
                 openingScreen.classList.add('fade-out');
-                
                 setTimeout(() => {
                     celebrationRoom.classList.add('active');
-                    
-                    // Start floating elements
                     createFloatingElements();
-                    
-                    // Start confetti
                     createConfetti();
-                    const confettiInterval = setInterval(createConfetti, 2000);
+                    window.confettiInterval = setInterval(createConfetti, 2000);
+                    playMusic();
                     
-                    // Store interval for cleanup
-                    window.confettiInterval = confettiInterval;
-                    
-                    // Try to play birthday song
-                    playBirthdaySong();
-                    
-                    // Typewriter effect for message
-                    typeMessageEffect();
-                    
+                    const message = document.querySelector('.english-blessing');
+                    const text = message.textContent;
+                    message.textContent = '';
+                    let i = 0;
+                    function type() {
+                        if (i < text.length) {
+                            message.textContent += text.charAt(i);
+                            i++;
+                            setTimeout(type, 25);
+                        }
+                    }
+                    setTimeout(type, 800);
                 }, 400);
             }, 1000);
         }
         
-        // Event listeners for entry
+        function playMusic() {
+            birthdaySong.volume = 0.25;
+            birthdaySong.play().then(() => {
+                isPlaying = true;
+                playBtn.innerHTML = '<i class="fas fa-pause"></i>';
+                songName.textContent = "Now Playing";
+            }).catch(e => {
+                songName.textContent = "Click Play";
+                songName.addEventListener('click', function playOnClick() {
+                    birthdaySong.play().then(() => {
+                        isPlaying = true;
+                        playBtn.innerHTML = '<i class="fas fa-pause"></i>';
+                        songName.textContent = "Now Playing";
+                        songName.removeEventListener('click', playOnClick);
+                    });
+                });
+            });
+        }
+        
         birthdayDoor.addEventListener('click', enterCelebration);
         enterButton.addEventListener('click', enterCelebration);
         
-        // Play birthday song
-        function playBirthdaySong() {
-            birthdaySong.loop = true;
-            birthdaySong.volume = isMuted ? 0 : 0.25;
-            
-            // Try to play with user interaction
-            const playPromise = birthdaySong.play();
-            
-            if (playPromise !== undefined) {
-                playPromise.then(() => {
-                    console.log("Birthday song playing successfully");
-                    isPlaying = true;
-                    playBtn.innerHTML = '<i class="fas fa-pause"></i>';
-                    songName.textContent = "Now Playing";
-                }).catch(error => {
-                    console.log("Auto-play failed, waiting for user interaction:", error);
-                    songName.textContent = "Click Play";
-                    songName.style.cursor = 'pointer';
-                    songName.title = "Click to play music";
-                    
-                    // Add click to play functionality
-                    songName.addEventListener('click', function playOnClick() {
-                        birthdaySong.play().then(() => {
-                            isPlaying = true;
-                            playBtn.innerHTML = '<i class="fas fa-pause"></i>';
-                            songName.textContent = "Now Playing";
-                            songName.style.cursor = 'default';
-                            songName.title = "";
-                            songName.removeEventListener('click', playOnClick);
-                        }).catch(e => console.log("Manual play failed:", e));
-                    });
-                });
-            }
-        }
-        
-        // Music Controls
         playBtn.addEventListener('click', () => {
             if (isPlaying) {
                 birthdaySong.pause();
@@ -878,9 +396,6 @@
                     isPlaying = true;
                     playBtn.innerHTML = '<i class="fas fa-pause"></i>';
                     songName.textContent = "Now Playing";
-                }).catch(error => {
-                    console.log("Play failed:", error);
-                    songName.textContent = "Click to Play";
                 });
             }
         });
@@ -897,142 +412,20 @@
                 birthdaySong.volume = 0.25;
                 volumeBtn.innerHTML = '<i class="fas fa-volume-up"></i>';
                 isMuted = false;
-                songName.textContent = isPlaying ? "Now Playing" : "Paused";
             } else {
                 birthdaySong.volume = 0;
                 volumeBtn.innerHTML = '<i class="fas fa-volume-mute"></i>';
                 isMuted = true;
-                songName.textContent = "Muted";
             }
         });
         
-        // Typewriter effect
-        function typeMessageEffect() {
-            const messageElement = document.querySelector('.english-blessing');
-            const text = messageElement.textContent;
-            messageElement.textContent = '';
-            
-            let i = 0;
-            function type() {
-                if (i < text.length) {
-                    messageElement.textContent += text.charAt(i);
-                    i++;
-                    setTimeout(type, 25);
-                }
-            }
-            
-            setTimeout(type, 800);
-        }
-        
-        // Door hover effect
-        birthdayDoor.addEventListener('mouseenter', () => {
-            if (!birthdayDoor.classList.contains('open')) {
-                birthdayDoor.style.transform = 'perspective(1000px) rotateY(-8deg)';
-            }
-        });
-        
-        birthdayDoor.addEventListener('mouseleave', () => {
-            if (!birthdayDoor.classList.contains('open')) {
-                birthdayDoor.style.transform = 'perspective(1000px) rotateY(0deg)';
-            }
-        });
-        
-        // Interactive candles
-        const flames = document.querySelectorAll('.virtual-flame');
-        flames.forEach(flame => {
-            flame.addEventListener('click', (e) => {
-                e.stopPropagation();
-                
-                // Extinguish flame
-                flame.style.animation = 'none';
-                flame.style.opacity = '0';
-                flame.style.transition = 'opacity 0.4s';
-                
-                // Try to play blow sound
-                try {
-                    const blowSound = new Audio('https://assets.mixkit.co/sfx/preview/mixkit-blow-candle-1774.mp3');
-                    blowSound.volume = 0.15;
-                    blowSound.play().catch(e => console.log("Blow sound failed"));
-                } catch (e) {
-                    console.log("Blow sound error:", e);
-                }
-                
-                // Create smoke
-                for (let i = 0; i < 2; i++) {
-                    setTimeout(() => {
-                        const smoke = document.createElement('div');
-                        smoke.style.position = 'fixed';
-                        smoke.style.left = e.clientX - 6 + Math.random() * 12 + 'px';
-                        smoke.style.top = e.clientY - 6 + Math.random() * 12 + 'px';
-                        smoke.style.width = '12px';
-                        smoke.style.height = '12px';
-                        smoke.style.background = 'radial-gradient(circle, rgba(255,255,255,0.6) 0%, transparent 70%)';
-                        smoke.style.borderRadius = '50%';
-                        smoke.style.pointerEvents = 'none';
-                        smoke.style.zIndex = '9999';
-                        
-                        document.body.appendChild(smoke);
-                        
-                        smoke.animate([
-                            { transform: 'scale(0.5)', opacity: 1 },
-                            { transform: 'scale(1.2)', opacity: 0 }
-                        ], {
-                            duration: 600,
-                            easing: 'ease-out'
-                        });
-                        
-                        setTimeout(() => {
-                            if (smoke.parentNode) {
-                                smoke.remove();
-                            }
-                        }, 600);
-                    }, i * 80);
-                }
-            });
-        });
-        
-        // Click effects
-        celebrationRoom.addEventListener('click', (e) => {
-            // Create heart effect
-            const heart = document.createElement('div');
-            heart.innerHTML = '💖';
-            heart.style.position = 'fixed';
-            heart.style.left = e.clientX + 'px';
-            heart.style.top = e.clientY + 'px';
-            heart.style.fontSize = '1.5rem';
-            heart.style.pointerEvents = 'none';
-            heart.style.zIndex = '9999';
-            
-            document.body.appendChild(heart);
-            
-            heart.animate([
-                { transform: 'translateY(0) scale(1)', opacity: 1 },
-                { transform: 'translateY(-50px) scale(1.1)', opacity: 0 }
-            ], {
-                duration: 500,
-                easing: 'ease-out'
-            });
-            
-            setTimeout(() => {
-                if (heart.parentNode) {
-                    heart.remove();
-                }
-            }, 500);
-        });
-        
-        // Audio error handling
-        birthdaySong.addEventListener('error', function(e) {
-            console.log("Audio error:", e);
-            songName.textContent = "Audio Error";
+        birthdaySong.addEventListener('error', () => {
+            songName.textContent = "Music Error";
             songName.style.color = "#FF6B6B";
         });
         
-        // Cleanup on page unload
-        window.addEventListener('beforeunload', function() {
-            if (window.confettiInterval) {
-                clearInterval(window.confettiInterval);
-            }
-            birthdaySong.pause();
+        window.addEventListener('beforeunload', () => {
+            if (window.confettiInterval) clearInterval(window.confettiInterval);
         });
     </script>
 </body>
